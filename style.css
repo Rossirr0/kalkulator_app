@@ -1,0 +1,219 @@
+/* Atur dasar tampilan */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #333;
+  transition: background-color 0.2s;
+  color: #fff;
+  overflow: hidden;
+}
+
+.calculator {
+  width: 90vw;
+  max-width: 420px;
+  background-color: #000;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.display {
+  font-size: 3em;
+  text-align: right;
+  color: #fff;
+  background-color: #333;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  word-break: break-word;
+  padding: 10px;
+  overflow-x: auto; /* Menghindari teks yang terpotong */
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  justify-items: center;
+}
+
+button {
+    background-color: #333; /* Warna latar belakang tombol */
+    color: #fff; /* Warna teks tombol */
+    border: 2px solid #666; /* Border agar tombol terlihat */
+    border-radius: 50%; /* Membuat tombol berbentuk lingkaran */
+    cursor: pointer; /* Menampilkan cursor pointer saat hover */
+  }
+  
+  button:hover {
+    background-color: #444; /* Warna saat tombol dihover */
+  }
+  
+  button:active {
+    background-color: #555; /* Warna saat tombol ditekan */
+  }
+  
+
+/* Warna tombol */
+button.operation {
+  background-color: #ff9500;
+  color: #fff;
+}
+
+button.number {
+  background-color: #333;
+  color: #fff;
+}
+
+button.special {
+  background-color: #a5a5a5;
+  color: #000;
+}
+
+button.active {
+  background-color: #666 !important;
+  color: #fff !important;
+}
+
+button.zero {
+  grid-column: span 2;
+  border-radius: 30px;
+}
+
+button[data-value="AC"] {
+  color: #fff !important;
+  background-color: red !important;
+  position: relative;
+    z-index: 1; /* Pastikan tombol kalkulator berada di atas elemen lainnya */
+}
+
+/* Dark mode */
+body.dark {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .calculator.dark {
+    background-color: #000;
+  }
+  
+  .display.dark {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  button.dark.number {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* Light mode */
+  body.Light {
+    background-color: #f3f3f3;
+    color: #000;
+  }
+  
+  .calculator.Light {
+    background-color: #fff;
+  }
+  
+  .display.Light {
+    background-color: #eeeeee;
+    color: #000;
+  }
+  
+  button.Light.number {
+    background-color: #eeeeee;
+    color: #000;
+  }
+  
+/* Tombol untuk mengganti mode */
+.toggle-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2em; /* Ukuran emoji lebih besar agar jelas */
+  color: #ff9500;
+  transition: color 0.3s ease; /* Transisi saat ganti mode */
+}
+
+/* Tombol untuk mengganti mode */
+.toggle-button {
+    background: none;
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+
+/* Hover effect untuk tombol mode */
+.toggle-button:hover {
+  color: #fff;
+}
+
+/* Dark mode - Tombol mode dengan warna saat dark mode */
+body.dark .toggle-button {
+  color: #ff9500;
+}
+
+/* Light mode - Tombol mode dengan warna saat light mode */
+body.light .toggle-button {
+  color: #333;
+}
+
+/* Media Query untuk Layar Lebih Kecil */
+@media (max-width: 480px) {
+  .calculator {
+    width: 90vw;
+    padding: 10px;
+  }
+
+  .display {
+    font-size: 2.5em;
+    padding: 10px;
+  }
+
+  .button {
+    font-size: 1.5em;
+    height: 60px;
+  }
+
+  .buttons {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 320px) {
+  .display {
+    font-size: 2em;
+  }
+
+  .button {
+    font-size: 1.3em;
+    height: 50px;
+  }
+}
+
+@media (max-width: 300px) {
+  .display {
+    font-size: 1.5em;
+  }
+
+  .button {
+    font-size: 1em;
+    height: 40px;
+  }
+}
